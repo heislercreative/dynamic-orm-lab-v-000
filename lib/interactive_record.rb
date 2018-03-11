@@ -1,5 +1,6 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
+require 'pry'
 
 class InteractiveRecord
 
@@ -12,7 +13,7 @@ class InteractiveRecord
 
     table_info = DB[:conn].execute("PRAGMA table_info('#{table_name}')")
     column_names = []
-
+    binding.pry
     table_info.each {|column| column_names << column["name"]}
   end
   column_names.compact
